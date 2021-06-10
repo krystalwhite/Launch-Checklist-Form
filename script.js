@@ -1,4 +1,19 @@
 // Write your JavaScript code here!
+window.addEventListener("load", function() {
+   let form = document.getElementById("launchForm");
+   let launch = document.getElementById("launchStatus");
+   let formSubmit = document.getElementById("formSubmit");
+   let pilot = document.getElementById("pilotStatus");
+   let copilot = document.getElementById("copilotStatus");
+   let fuel = document.getElementById("fuelStatus");
+   let cargo = document.getElementById("cargoStatus");
+
+   form.addEventListener("submit", function() {
+      submit.preventDefault();
+
+   });
+
+});
 
 /* This block of code shows how to format the HTML once you fetch some planetary JSON!
 <h2>Mission Destination</h2>
