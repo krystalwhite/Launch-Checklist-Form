@@ -11,12 +11,18 @@ window.addEventListener("load", function() {
    let formSubmit = document.getElementById("formSubmit");
    
    
-
+   // the typeof for string and number are not catching
    form.addEventListener("submit", function(event) {
       if (pilot.value === "" || copilot.value === "" || fuel.value === "" || cargo.value === "") {
          alert("All fields are required to submit the form.");
          event.preventDefault();
-      } 
+      } else if ((typeof(pilot.value) !== "string") || (typeof(copilot.value) !== "string")) {
+         alert("Please enter a name with letters only please.");
+         event.preventDefault();
+      } else if ((typeof(fuel.value) != "number") || (typeof(cargo.value) != "number")) {
+         alert("Please enter a quantity with numbers only please.");
+         event.preventDefault();
+      }
    });
 });
 
