@@ -10,15 +10,6 @@ div {
     visibility: hidden;   
 }
 
-#notReady {
-    color: red;
-    visibility: visible;
-}
-
-#ready {
-    color: green;
-}
-
 #launchForm {
     background-color: #ECF0F1;
     text-align: center;
