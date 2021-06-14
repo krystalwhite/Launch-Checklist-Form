@@ -2,6 +2,8 @@
 /* TODO items:  
 1. determine how to make isNan work
 2. how to change text within the textbox
+   update pilot name, copilot name, fuel status low, cargo too high, ready for launch
+
 
  */
 
@@ -78,27 +80,30 @@ window.addEventListener("load", function() {
 
    });
 
+// NOTE: The json section works correctly and incorporates the random mission destination.
+fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
+      response.json().then(function(json) {
+      let mission = document.getElementById("missionTarget");        
+      let randomNumber = Math.floor(Math.random()*6);
+      mission.innerHTML += `
+            <h2>Mission Destination</h2>
+               <div>
+               <ol> 
+                    <li>Name: ${json[randomNumber].name}</li>
+                    <li>Diameter: ${json[randomNumber].diameter}</li>
+                    <li>Star: ${json[randomNumber].star}</li>
+                    <li>Distance from Earth: ${json[randomNumber].distance}</li>
+                    <li>Number of Moons: ${json[randomNumber].moons}</li>
+                </ol>
+                </div>
+                <img class="missionTarget img" src="${json[randomNumber].image}">
+                </div>`;
+               
+        });
+      });
+
+
+
 });
 
 
-// All this code works; disabling it right now during the construction phase.
-// fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
-//       response.json().then(function(json) {
-//       let mission = document.getElementById("missionTarget");        
-//       let randomNumber = Math.floor(Math.random()*6);
-//       mission.innerHTML += `
-//             <h2>Mission Destination</h2>
-//                <div>
-//                <ol> 
-//                     <li>Name: ${json[randomNumber].name}</li>
-//                     <li>Diameter: ${json[randomNumber].diameter}</li>
-//                     <li>Star: ${json[randomNumber].star}</li>
-//                     <li>Distance from Earth: ${json[randomNumber].distance}</li>
-//                     <li>Number of Moons: ${json[randomNumber].moons}</li>
-//                 </ol>
-//                 </div>
-//                 <img class="missionTarget img" src="${json[randomNumber].image}">
-//                 </div>`;
-               
-//         });
-// });
