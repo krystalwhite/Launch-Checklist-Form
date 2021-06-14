@@ -10,6 +10,15 @@ div {
     visibility: hidden;   
 }
 
+#notReady {
+    color: red;
+    visibility: visible;
+}
+
+#ready {
+    color: green;
+}
+
 #launchForm {
     background-color: #ECF0F1;
     text-align: center;
@@ -51,3 +60,5 @@ button {
     height: 30px;
     margin: 10px 0;
 }
+
+

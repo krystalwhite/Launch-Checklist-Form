@@ -13,12 +13,14 @@ window.addEventListener("load", function() {
    let copilotStatus = document.getElementById("copilotStatus");
    let fuelStatus = document.getElementById("fuelStatus");
    let cargoStatus = document.getElementById("cargoStatus");
+   let notReady = document.getElementById("faultyItems");
 
    
    // the typeof for string and number are not catching -- both are logging as strings
    form.addEventListener("submit", function(event) {
       event.preventDefault();
       
+
       if (pilot.value === "" || copilot.value === "" || fuel.value === "" || cargo.value === "") {
          alert("All fields are required to submit the form.");
          event.preventDefault();
@@ -30,13 +32,48 @@ window.addEventListener("load", function() {
          alert("Please enter a positive quantity.");
          event.preventDefault();
       }
+
    });
 
+
+   document.addEventListener("click", function(event) {
+      let awaitingInfo = "";
+
+      pilotStatus.innerHTML += pilot.value;
+      copilotStatus.innerHTML += copilot.value;
+
+
+   });
+
+
    if (fuel.value < 10000) {
-      // change faultyitems to visible
-      fuelStatus.innerHTML(`There is not enough fuel for the journey.`);
+      // change fuelStatus to state (`There is not enough fuel for the journey.`);
+      // notReadyForLaunch;
    }
-   pilotStatus.innerHTML(`Pilot ${pilot.value} is ready for launch.`);
+
+   if (cargo.value > 10000) {
+      // change fuelStatus to state (`There is not enough fuel for the journey.`);
+      // notReadyForLaunch;
+   }
+
+   function notReadyForLaunch() {
+      console.log(`testing out the notreadyforlaunch function`);
+      notReady.attribute = "visible";   // change faultyitems to visible
+      // launch.attribute 
+
+      // text of launchStatus should change to (`Shuttle not ready for launch`);
+      // text of launchStatus color should be red
+   }
+
+   // function readyForLaunch() {
+   //    // text of launchStatus color should be green
+   //    // text of launchStatus should change to (`Shuttle is ready for launch`);
+   // };
+
+
+
+
+   // pilotStatus.innerHTML(`Pilot ${pilot.value} is ready for launch.`);
 
 
 
@@ -44,6 +81,8 @@ window.addEventListener("load", function() {
 
 });
 
+
+notReadyForLaunch;
 
 
 // All this code works; disabling it right now during the construction phase.
