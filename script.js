@@ -52,28 +52,29 @@ window.addEventListener("load", function() {
          alert("Please enter a positive quantity.");
       }
 
-      // NOTE: first three lines work; bottom line does not
+      // NOTE: the color and visibility work; the innerHTML and setAttribute lines do not
       else if (fuel.value < 10000) {
-         launch.style.color = "red";  // text of launchStatus color should be red
-         launch.innerHTML = "Shuttle not ready for launch";  // text of launchStatus should change to (`Shuttle not ready for launch`);
-         notReady.style.visibility = "visible";  // change faultyitems to visible
+         launch.style.color = "red";
+         // launch.innerHTML = "Shuttle not ready for launch";  // text of launchStatus should change to (`Shuttle not ready for launch`);
+         // launch.setAttribute("launchStatus", "Shuttle not ready for launch");
+         notReady.style.visibility = "visible";
          // fuelStatus.innerHTML(`There is not enough fuel for the journey.`); // change fuelStatus text
          
       }
 
-      // NOTE: first three lines work; bottom line does not
+      // NOTE: the color and visibility work; the innerHTML lines do not
       else if (cargo.value > 10000) {
-         launch.style.color = "red";  // text of launchStatus color should be red
-         launch.innerHTML = "Shuttle not ready for launch";  // text of launchStatus should change to (`Shuttle not ready for launch`);
-         notReady.style.visibility = "visible";  // change faultyitems to visible     
+         launch.style.color = "red";  
+         // launch.innerHTML = "Shuttle not ready for launch";  // text of launchStatus should change to (`Shuttle not ready for launch`);
+         notReady.style.visibility = "visible";   
          // cargoStatus.innerHTML(`There is too much mass for liftoff.`);  // change cargoStatus to state (`There is too much mass for liftoff.`);
       }
 
       // NOTE: first line won't work, but other two will
       else {
          // launch.innerHTML = "Shuttle is ready for launch";  // text of launchStatus should change to (`Shuttle is ready for launch`);
-         launch.style.color = "green"; //text of launchStatus color should be green
-         notReady.style.visibility = "visible";  // change faultyitems to visible
+         launch.style.color = "green"; 
+         notReady.style.visibility = "visible";  
       }
 
 
