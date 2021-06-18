@@ -1,4 +1,3 @@
-
 window.addEventListener("load", function() {
    let pilot = document.querySelector("input[name=pilotName]");
    let copilot = document.querySelector("input[name=copilotName]");
@@ -17,21 +16,48 @@ window.addEventListener("load", function() {
    form.addEventListener("submit", function(event) {
       event.preventDefault();
 
-      let pilotInputTest = Number(pilot.value);
-      let copilotInputTest = Number(copilot.value);
+      // let pilotInputTest = Number(pilot.value);
+      // let copilotInputTest = Number(copilot.value);
       let fuelInput = Number(fuel.value);
       let cargoInput = Number(cargo.value);
-
+      let specialCharacters = "1234567890!@#$%^&*()_+={}[]\|;,./?><";
+      let pilotReady = false;
+      let copilotReady = false;
+      let fuelReady = false;
+      let cargoReady = false;
+      
       if (pilot.value === "" || copilot.value === "" || fuel.value === "" || cargo.value === "") { 
          alert("All fields are required to submit the form.");
       }  
-       
-      if (!isNaN(pilotInputTest) || !isNaN(copilotInputTest)) { 
-         alert("Please enter a name with letters only please.");
-      } else {
-         pilotStatus.textContent = `Pilot ${pilot.value} is ready for launch`
-         copilotStatus.textContent = `Co-pilot ${copilot.value} is ready for launch`
+
+      for (let i = 0; i < pilot.value.length; i++) {
+         if (specialCharacters.includes(pilot.value[i])) {
+            alert("Please enter a name that includes letters only please."); 
+            pilotStatus.textContent = `Pilot is not ready for launch`;
+            pilotReady = false;
+         }
+         else {
+            pilotReady = true;
+         }
+      }   
+
+      for (let j = 0; j < copilot.value.length; j++) {
+         if (specialCharacters.includes(copilot.value[j])) {
+            alert("Please enter a name that includes letters only please.");
+            copilotStatus.textContent = `Copilot is not ready for launch`;
+            copilotReady = false;
+         } else {
+            copilotReady = true;
+         }
       }
+
+      // if (!isNaN(pilotInputTest) || !isNaN(copilotInputTest)) { 
+      //    alert("Please enter a name with letters only please.");
+      // } 
+      // else {
+         // pilotStatus.textContent = `Pilot ${pilot.value} is ready for launch`;
+         // copilotStatus.textContent = `Co-pilot ${copilot.value} is ready for launch`;
+      // }
       
       if (isNaN(fuelInput) || isNaN(cargoInput)) {
          alert("Please enter a quantity please.");
@@ -56,10 +82,17 @@ window.addEventListener("load", function() {
       }
 
       else {
+         fuelReady = true;
+         cargoReady = true;
+      }
+
+      if (pilotReady & copilotReady & fuelReady & cargoReady) {
          launch.textContent = "Shuttle is ready for launch"
          launch.style.color = "green"; 
-         fuelStatus.textContent = "Fuel level high enough for launch";  
-         cargoStatus.textContent = "Cargo mass low enough for launch";  
+         pilotStatus.textContent = `Pilot ${pilot.value} is ready for launch`;
+         copilotStatus.textContent = `Co-pilot ${copilot.value} is ready for launch`;
+         fuelStatus.textContent = `Fuel level of ${fuel.value} is high enough for launch`;  
+         cargoStatus.textContent = `Cargo mass of ${cargo.value} if low enough for launch`;  
          notReady.style.visibility = "visible";  
       }
 
