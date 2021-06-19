@@ -59,13 +59,13 @@ window.addEventListener("load", function() {
       else if (fuel.value < 10000) {
          launch.style.color = "red";
          launch.textContent = "Shuttle not ready for launch";
-         fuelStatus.textContent = "Fuel level too low for launch";  
+         fuelStatus.textContent = "Fuel level is too low for launch";  
          notReady.style.visibility = "visible";         
       }
 
       else if (cargo.value > 10000) {
          launch.style.color = "red";  
-         launch.textContent = "Shuttle not ready for launch";
+         launch.textContent = "Shuttle is not ready for launch";
          cargoStatus.textContent = "There is too much mass for liftoff";
          notReady.style.visibility = "visible";   
       }
@@ -81,7 +81,7 @@ window.addEventListener("load", function() {
          pilotStatus.textContent = `Pilot ${pilot.value} is ready for launch`;
          copilotStatus.textContent = `Co-pilot ${copilot.value} is ready for launch`;
          fuelStatus.textContent = `Fuel level of ${fuel.value} is high enough for launch`;  
-         cargoStatus.textContent = `Cargo mass of ${cargo.value} if low enough for launch`;  
+         cargoStatus.textContent = `Cargo mass of ${cargo.value} is low enough for launch`;  
          notReady.style.visibility = "visible";  
       }
 
