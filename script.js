@@ -6,7 +6,6 @@ window.addEventListener("load", function() {
 
    let form = document.getElementById("launchForm");
    let launch = document.getElementById("launchStatus");
-   let formSubmit = document.getElementById("formSubmit");
    let pilotStatus = document.getElementById("pilotStatus");
    let copilotStatus = document.getElementById("copilotStatus");
    let fuelStatus = document.getElementById("fuelStatus");
@@ -16,8 +15,6 @@ window.addEventListener("load", function() {
    form.addEventListener("submit", function(event) {
       event.preventDefault();
 
-      // let pilotInputTest = Number(pilot.value);
-      // let copilotInputTest = Number(copilot.value);
       let fuelInput = Number(fuel.value);
       let cargoInput = Number(cargo.value);
       let specialCharacters = "1234567890!@#$%^&*()_+={}[]\|;,./?><";
@@ -50,14 +47,6 @@ window.addEventListener("load", function() {
             copilotReady = true;
          }
       }
-
-      // if (!isNaN(pilotInputTest) || !isNaN(copilotInputTest)) { 
-      //    alert("Please enter a name with letters only please.");
-      // } 
-      // else {
-         // pilotStatus.textContent = `Pilot ${pilot.value} is ready for launch`;
-         // copilotStatus.textContent = `Co-pilot ${copilot.value} is ready for launch`;
-      // }
       
       if (isNaN(fuelInput) || isNaN(cargoInput)) {
          alert("Please enter a quantity please.");
@@ -118,8 +107,6 @@ fetch("https://handlers.education.launchcode.org/static/planets.json").then(func
                
         });
       });
-
-
 
 });
 
